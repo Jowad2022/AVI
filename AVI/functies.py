@@ -33,20 +33,37 @@ def getFileContentAsString(textFile: str) -> str:
 
 # opdracht 1
 def getNumberOfCharacters(text: str) -> int:
-    count = 0 
+    letter_count = 0 
     for x in text:
         if x in ALLOWED_IN_WORD:
-            count += 1
-    return count
+            letter_count += 1
+    return letter_count
 
 # opdracht 2
 def getNumberOfSentences(text: str) -> int:
-    count = 0 
+    zin_count = 0 
     for x in text:
         if x in EIND_VAN_ZIN:
-            count += 1
-    return count
+            zin_count += 1
+    return zin_count
 
 # opdracht 3
 def getNumberOfWords(text: str) -> int:
     return len(text.split())
+
+#opdracht 5
+def GetAVIscore(text: str) -> int:
+    woorden = getNumberOfWords(text)
+    zinnen = getNumberOfSentences(text)
+    gemiddelde = woorden/zinnen
+    if gemiddelde <=7 >8:
+        avi_score = 5
+    elif gemiddelde <=8 <9:
+        avi_score = 6
+    elif gemiddelde <=9 >10:
+        avi_score = 8
+    elif gemiddelde <=10 >11:
+        avi_score = 11
+    elif gemiddelde <=11:
+        avi_score = 12
+    return avi_score
