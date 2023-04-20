@@ -15,6 +15,7 @@ als je de reacties van je vrienden en familie ziet, als je ze verrast met je eig
 """
 
 ALLOWED_IN_WORD = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-"
+EIND_VAN_ZIN = "!?."
 
 # depending on the type of text you wish you get an easy, difficult or text from file.
 def getText(choice: str) -> str:
@@ -32,12 +33,20 @@ def getFileContentAsString(textFile: str) -> str:
 
 # opdracht 1
 def getNumberOfCharacters(text: str) -> int:
-    return 0
+    count = 0 
+    for x in text:
+        if x in ALLOWED_IN_WORD:
+            count += 1
+    return count
 
 # opdracht 2
 def getNumberOfSentences(text: str) -> int:
-    return 0
+    count = 0 
+    for x in text:
+        if x in EIND_VAN_ZIN:
+            count += 1
+    return count
 
 # opdracht 3
 def getNumberOfWords(text: str) -> int:
-    return 0
+    return len(text.split())
